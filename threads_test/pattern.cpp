@@ -25,7 +25,7 @@ pcapInfo* suspicious_syn_Flood(pcapInfo* checker) {
 
 
 pcapInfo* suspicious_Smurf(char* brocastAddr, pcapInfo* checker) { //brocast_Addr = 192.168.0.
-	if (checker->protocol == "ICMP" && strstr(checker->sendAddr, brocastAddr))
+	if (checker->protocol == "ICMP" && strstr(checker->recvAddr, brocastAddr))
 		return checker;
 	else
 		return NULL;
