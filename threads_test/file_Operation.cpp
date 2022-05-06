@@ -7,7 +7,7 @@ void analyze_File(char* fileDirectory, F_info* attrbute) {
 
 	FILE* fp = fopen(fileDirectory, "r");
 	if (fp == NULL) {
-		printf("ÆÄÀÏ°æ·Î¸¦ Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+		printf("íŒŒì¼ê²½ë¡œë¥¼ ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 		return;
 	}
 
@@ -40,30 +40,30 @@ unsigned int getFile_Size(FILE *fp) {
 
 int fileSpliter(char* inputDir, char* baseDir, int line) {
 	/*
-		ÀÎÀÚ:
-			1. ºĞÇÒÇÒ ÆÄÀÏ°æ·Î
-			2. ºĞÇÒµÈ ÆÄÀÏ ÀúÀå°æ·Î
-			3. ºĞÇÒÇÒ ÁÙ ¼ö
+		ì¸ì:
+			1. ë¶„í• í•  íŒŒì¼ê²½ë¡œ
+			2. ë¶„í• ëœ íŒŒì¼ ì €ì¥ê²½ë¡œ
+			3. ë¶„í• í•  ì¤„ ìˆ˜
 
-		°á°ú
-			1. ºĞÇÒµÈ ÆÄÀÏµé.
+		ê²°ê³¼
+			1. ë¶„í• ëœ íŒŒì¼ë“¤.
 
 		error
-			-1 - ºĞÇÒÇÒ ÆÄÀÏÀÇ °æ·Î°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.
-			-2 - ºĞÇÒµÈ ÆÄÀÏÀÇ °æ·Î°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.
-			-3 - ¾Ë¼ö ¾ø´Â ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.
-			 0 - ÀÎÀÚ°¡ ºÎÁ·ÇÕ´Ï´Ù.
-			 1 - ¼º°ø
+			-1 - ë¶„í• í•  íŒŒì¼ì˜ ê²½ë¡œê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.
+			-2 - ë¶„í• ëœ íŒŒì¼ì˜ ê²½ë¡œê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.
+			-3 - ì•Œìˆ˜ ì—†ëŠ” ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.
+			 0 - ì¸ìê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.
+			 1 - ì„±ê³µ
 	*/
 
-	char base[100];				// ºĞÇÒµÈ ÆÄÀÏ ÀúÀå°æ·Î
-	char tmp[5];				// ºĞÇÒµÈ ÆÄÀÏµÚ¿¡ ºÙ´Â ¼ıÀÚ. ex) log1, log2, ...
-	char analyzeFile[100];		// ºĞÇÒÇÒ ÆÄÀÏÀÇ °æ·Î
-	char newDirectory[100];		// ºĞÇÒµÈ ÆÄÀÏÀ» writeÇÏ±â À§ÇÑ ¼¼ºÎ°æ·Î
-	char filename[100] = "log";	// ºĞÇÒµÈ ÆÄÀÏ ÀÌ¸§
+	char base[100];				// ë¶„í• ëœ íŒŒì¼ ì €ì¥ê²½ë¡œ
+	char tmp[5];				// ë¶„í• ëœ íŒŒì¼ë’¤ì— ë¶™ëŠ” ìˆ«ì. ex) log1, log2, ...
+	char analyzeFile[100];		// ë¶„í• í•  íŒŒì¼ì˜ ê²½ë¡œ
+	char newDirectory[100];		// ë¶„í• ëœ íŒŒì¼ì„ writeí•˜ê¸° ìœ„í•œ ì„¸ë¶€ê²½ë¡œ
+	char filename[100] = "log";	// ë¶„í• ëœ íŒŒì¼ ì´ë¦„
 
 	if (inputDir == NULL || baseDir == NULL)
-		return 0; // ÀÎÀÚÁ¤º¸°¡ ºÎÁ·ÇÕ´Ï´Ù.
+		return 0; // ì¸ìì •ë³´ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.
 
 	strcpy(analyzeFile, inputDir);
 	strcpy(base, baseDir);
@@ -74,7 +74,7 @@ int fileSpliter(char* inputDir, char* baseDir, int line) {
 	FILE* fp1;
 	FILE* fp = fopen(analyzeFile, "r");
 	if (fp == NULL)
-		return -1; //ºĞÇÒÇÒ ÆÄÀÏÀÇ °æ·Î°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.
+		return -1; //ë¶„í• í•  íŒŒì¼ì˜ ê²½ë¡œê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.
 
 	_mkdir(base);
 
@@ -89,13 +89,13 @@ int fileSpliter(char* inputDir, char* baseDir, int line) {
 
 		fp1 = fopen(newDirectory, "a");
 		if (fp == NULL)
-			return -2; //ºĞÇÒµÈ ÆÄÀÏÀúÀå °æ·Î°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.
+			return -2; //ë¶„í• ëœ íŒŒì¼ì €ì¥ ê²½ë¡œê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.
 
 		char tmp_chr;
 		int count = 0;
 		while (!feof(fp)) {
 			tmp_chr = fgetc(fp);
-			printf("%c", tmp_chr);
+			//printf("%c", tmp_chr);
 			fprintf(fp1, "%c", tmp_chr);
 			if (tmp_chr == '\n')
 				count++;
