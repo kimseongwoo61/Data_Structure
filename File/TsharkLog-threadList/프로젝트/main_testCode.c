@@ -3,10 +3,10 @@
 void Analyzing(char* analysisFile, char* temp, char* dosSignature);
 
 int main() {
-	// ÆÄÀÏ °æ·Î
-	// ÀúÀå °æ·Î
-	// ºÐ¼® Ç×¸ñ
-	// ¸®½ºÆ® ¹Þ¾Æ¿À±â
+	// íŒŒì¼ ê²½ë¡œ
+	// ì €ìž¥ ê²½ë¡œ
+	// ë¶„ì„ í•­ëª©
+	// ë¦¬ìŠ¤íŠ¸ ë°›ì•„ì˜¤ê¸°
 	clock_t start1, end1;
 	float res1;
 
@@ -19,7 +19,7 @@ int main() {
 	Analyzing(analysisFile, temp, dosSignature);
 	end1 = clock();
 	res1 = (float)(end1 - start1) / CLOCKS_PER_SEC;
-	printf(" ´ÙÁß ½º·¹µå ±â¹Ý ¼Ò¿äµÈ ½Ã°£ : %.3f \n", res1);
+	printf(" ë‹¤ì¤‘ ìŠ¤ë ˆë“œ ê¸°ë°˜ ì†Œìš”ëœ ì‹œê°„ : %.3f \n", res1);
 	//DeleteCriticalSection(&cs);
 
 
@@ -27,19 +27,19 @@ int main() {
 }
 
 void Analyzing(char* analysisFile, char* temp, char* dosSignature) {	
-	// ÆÄÀÏ ºÐÇÒ
+	// íŒŒì¼ ë¶„í• 
 
 	//int line = getLine_Count()
 	if (fileSpliter(analysisFile, temp, 1000) != 1) {
-		printf("ºÐÇÒ¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
+		printf("ë¶„í• ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		return;
 	}
 	parsingResult* test = GetfileList(temp, dosSignature);
 	parsingResult* temps = test;
 	temps = temps->next;
 
-	printf("¸¶Áö¸· ---------------\n");
-	printf("Ãâ·ÂÀ» ½ÃÀÛÇÕ´Ï´Ù.\n");
+	printf("ë§ˆì§€ë§‰ ---------------\n");
+	printf("ì¶œë ¥ì„ ì‹œìž‘í•©ë‹ˆë‹¤.\n");
 	while (1) {
 		printf("%s %s\n", temps->data.seqNum, temps->data.recvAddr);
 		temps = temps->next;
